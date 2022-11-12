@@ -5,11 +5,11 @@
 
 void inputArray(int* a, int& count) {
 	std::string str;
-	char* str1 = new char[500];
+	char* str1 = new char[500000];
 	std::cout << "Please input the array you want to sort:" << std::endl;
 	getline(std::cin, str);
 	char* ch;
-	str.copy(str1, 100);
+	str.copy(str1, 500000);
 	ch = strtok(str1, " .");
 	while (1) {
 		a[count] = atoi(ch);
@@ -51,7 +51,7 @@ void insertionSort(int** a, int count) {
 
 void shellSort(int* a, int count, int gap) {
 	if (gap > 0) {
-		int** b = new int* [100];
+		int** b = new int* [10000];
 		for (int i = 0; i < gap; i++) {
 			int dem = 0;
 			int j = 0;
@@ -68,7 +68,7 @@ void shellSort(int* a, int count, int gap) {
 }
 
 int main() {
-	int* a = new int[150];
+	int* a = new int[10000];
 	int count = 0;
 	inputArray(a, count);
 	auto start = std::chrono::high_resolution_clock::now();
